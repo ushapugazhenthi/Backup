@@ -1,0 +1,99 @@
+<br/>
+<br/>
+<md-card class="md-card-class">
+<div align="right">  
+  <p>  
+  <md-select placeholder="Select the Region" class="md-select-class">
+ <md-option value=" MySubmission">
+     My Submission
+ </md-option>
+ <md-option value=" allSubmission">
+     All Submission
+ </md-option>
+ <md-option value="recentSubmission">
+     Recent Submission
+ </md-option>
+</md-select>
+
+<button md-button class="md-button-class">New Submission</button>
+
+</p>
+</div >
+</md-card>
+<!--<div style="width: 1000px; height :600px; border:1px solid green;">-->
+    <!--
+ <div>
+     <details >
+         <summary>Advanced Search Box</summary>
+<form>
+   
+   
+    <div>
+<md-input-container>
+  <input mdInput placeholder="Favorite food" >
+</md-input-container>
+    </div>
+ 
+    <div>
+    <button md-button>Reset</button>
+      <button md-button>search</button>
+    </div>
+</form>
+</details>
+
+</div>
+-->
+
+
+
+<div (click) ="onClickShowTheForm()" class="form-class-margin">
+    <span >
+    <i class="material-icons">add</i>
+</span>
+<span>Advanced Search tab</span>
+
+</div>
+
+<form [hidden] ="toShowTheAdvancedSearch" class="form-class-margin">
+ <div>
+<md-input-container>
+  <input mdInput placeholder="FIrst Name" >
+</md-input-container>
+    </div>
+<div>
+<md-input-container>
+  <input mdInput placeholder="Last Name" >
+</md-input-container>
+</div>
+<div>
+<md-input-container>
+  <input mdInput placeholder="Employee Id" >
+</md-input-container>
+</div>
+<div>
+<md-input-container>
+  <input mdInput placeholder="Company" >
+</md-input-container>
+</div>
+<div>
+<md-input-container>
+  <input mdInput placeholder="Address" >
+</md-input-container>
+</div>
+
+
+
+
+
+    <div>
+    <button md-button class="md-button-class">Reset</button>
+      <button md-button class="md-button-class">search</button>
+    </div>
+</form>
+
+
+<!--
+<div>
+<data-table></data-table>
+</div>
+-->
