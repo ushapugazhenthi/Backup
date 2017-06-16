@@ -37,6 +37,9 @@ export class GridTableComponent implements DoCheck{
     private firstTimeLoad:boolean = true;
     private paramsValueVariable:string;
     
+    
+    
+    
     constructor(private ref:ChangeDetectorRef, private shareData:ShareDataService, private router:Router){
         this.sideNavOpen = false;
         
@@ -382,4 +385,128 @@ clickcalled(){
   }
 
 } 
+//html
 
+
+
+
+
+
+<div id='grid-card' class="custom-container">
+    
+    <ag-grid-angular #agGrid *ngIf="gridReady"
+            
+            [gridOptions]="gridOptions"
+            (rowClicked)="onRowClicked($event)"
+            [rowHeight] = 46
+            [headerHeight] = 35
+             pagination=true
+            [paginationPageSize]="pagination"
+            [suppressPaginationPanel] = true
+            class="ag-material my-grid, ag-blue"
+            enableSorting = true
+            enableFilter =true
+            style="width:100%; height:300px"
+    >
+            
+    </ag-grid-angular>  
+ 
+    <div class="row">
+            <div class="pull-right pagination-container" style="text-align:center">
+              
+                <span >
+                    Rows Per Page:
+                </span>
+                <span class="rows-per-page cursor-pointer"> 
+                    <select name="rowsPerPage" class="rows-per-page cursor-pointer" 
+                    [(ngModel)]="rowsPerPage" (ngModelChange)="setCurrentPageSize();goToFirstPage()" >
+                        <option *ngFor="let rws of rowsPerPageOption" value="{{rws}}">{{rws}}</option>
+                        
+                    </select>
+                    
+                </span>
+                <span class="page-change-btns crusor-pointer" (click)="goToPrevPage()" [hidden]="atFirstPage">
+                    <i class="material-icons">keyboard_arrow_left</i>
+                </span>
+                <span class="pagination-details"> {{firstRowForPage}}-{{lastRowForPage}} of {{gridData.length}}
+                    
+                </span>
+                
+                <span class="page-change-btns crusor-pointer" (click) = "goToNextPage()" [hidden]="atLastPage">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                </span>
+                
+            </div>
+        </div>
+ </div>
+    
+<!--</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+<ag-grid-angular #agGrid 
+            
+            [gridOptions]="gridOpt"
+            
+            [rowHeight] = 46
+            [headerHeight] = 35
+             pagination=true
+            [paginationPageSize]="pagination"
+            [suppressPaginationPanel] = true
+            class="ag-material my-grid, ag-blue"
+            
+            style="width:600px; height:400px"
+>
+        
+ </ag-grid-angular>       
+        <div>
+          
+       
+                <span >
+                    Rows Per Page:
+                </span>
+                <span>
+                 <select name="rowsPerPage" class="rows-per-page cursor-pointer" 
+                    [(ngModel)]="rowsPerPage" (ngModelChange)="setCurrentPageSize()" >
+                        <option *ngFor="let rws of rowsPerPageOption" value="{{rws}}">{{rws}}</option>
+                        
+                    </select>
+                    </span>
+          
+     <span class="page-change-btns crusor-pointer" (click)="goToPrevPage()" >
+         <i class="material-icons">keyboard_arrow_left</i>
+     </span>
+     <!--<span class="pagination-details"> {{firstRowForPage}}-{{lastRowForPage}} of {{getData.length}}</span>-->
+                
+      <!--<span class="page-change-btns crusor-pointer" (click) = "goToNextPage()" [hidden]="atLastPage">
+          <i class="material-icons">keyboard_arrow_right</i>
+          
+          </span>
+          
+        
+            </div>
+            
+            </div>-->
