@@ -510,3 +510,206 @@ clickcalled(){
             </div>
             
             </div>-->
+            
+            <!-- deal.html -->
+            <!-- To Cover The White Container Displayed when setting width to the below div -->
+<div class="margin-iss">
+  
+</div>
+
+
+
+<div class="search-criteria-container">
+    <div>
+  
+        
+    <div class="row region-container">
+        <div class="pull-right">
+          <md-select class="select-class" 
+            placeholder="Region">
+            
+            <md-option value="emea">EMEA</md-option>
+            <md-option value="apac" selected> APAC</md-option>
+            <md-option value="latam"> LATAM</md-option>
+        </md-select>
+      </div>
+    </div>
+    
+    <div class="advanced-search"> 
+        <div class="advanced-search-header cursor-pointer" (click)="ToggleAdvancedSearch()">
+            <span>
+                Advanced Search
+                <i *ngIf="!toggleSearchOpt" class="material-icons">add</i>
+                <i *ngIf="toggleSearchOpt" class="material-icons">remove</i>
+            </span>
+        </div>
+        <div *ngIf="toggleSearchOpt" class="advanced-search-option">
+            <form id="formId"  #formInfo="ngForm" action="" class="search-form" (ngSubmit)= "searchBasedFormValue(formInfo)">
+                <div >
+                  <md-input-container class="my-input-container style">
+                    <input id="policyId" name ="policyHolder" [(ngModel)]="policyHolder" mdInput placeholder="Policyholder/Insured"  [mdAutocomplete]="auto" [formControl]="policyCtrl"  >
+                  </md-input-container>
+                  
+             <md-autocomplete #auto="mdAutocomplete" name ="autoComp" >
+            <md-option [hidden]="hiddenOption" *ngFor="let policy of filteredPolicys | async" [value]="policy">
+            {{ policy }}
+            </md-option>
+         </md-autocomplete>
+              
+              
+              
+              
+   <md-input-container class="my-input-container">
+   <input mdInput placeholder="ID" name ="id" [(ngModel)]="id" >
+     </md-input-container>
+ 
+                    <md-input-container class="my-input-container">
+                        <input mdInput placeholder="Broker Name" name ="brokerName" [(ngModel)]="brokerName" >
+                    </md-input-container>
+                </div>
+                <div >
+                    <md-input-container class="my-input-container">
+                        <input mdInput placeholder="Inception Date" name ="Inceptiondate" [(ngModel)]="Inceptiondate" >
+                    </md-input-container>
+                </div>
+                 <div class=" col-md-12 button-container ">
+                    <button md-raised-button class="button-one button-color" >Reset</button>
+                    <button md-raised-button class="button-two button-color" (click)="searchBasedFormValue(formInfo.value)">Search</button>
+                </div>
+                
+            </form>
+        </div>
+        
+        <div class="deal-type-container">
+            <md-select id="myId" class="my-select-container" #selectVal  placeholder="Select a Deal" 
+            value="Hello Select" (change)="onChangeValueIs(ValueIS)"
+            [(ngModel)] ="ValueIS"
+            
+            >
+             <md-option *ngFor="let task of taskType" [value]="task">
+            {{ task }}
+            </md-option>
+            <!--
+                <md-option id="myId1" value="myDeals"  name="myDeals" 
+                > My Deals</md-option>
+                <md-option value="legacyDealEndorsement" name="legacyDealEndorsement" > Legacy Deal Endorsements</md-option>
+                <md-option value="mypendingDeals" name="mypendingDeals"> My Pending Deals</md-option>
+             -->
+            </md-select>
+        </div>
+        
+    </div>
+    
+    </div>
+</div>
+
+<div class="custom-container">
+    
+    <div class="my-tab-header">
+        <span>My Deals List</span>
+        <span class="my-actions">
+            <i class="material-icons">visibility</i>
+            <i class="material-icons">filter_list</i>
+            <i class="material-icons" >more_vert</i>
+        </span>
+    </div>
+    <md-tab-group [dynamicHeight] = true color='accent' (selectChange)="setCurrentTabGrid($event)">
+        <md-tab >
+          <ng-template md-tab-label>
+            ALL({{taskData.length}})
+          </ng-template>
+          <table-comp  [gridData] = taskData></table-comp>
+        </md-tab>
+        <!--
+        <md-tab >
+          <ng-template md-tab-label>
+            High Priority(3)
+          </ng-template>
+          <table-comp  [gridData] = taskData></table-comp>
+        </md-tab>
+        <md-tab>
+          <ng-template md-tab-label>
+            OverDue (5)
+          </ng-template>
+          <table-comp  [gridData] = taskData></table-comp>
+        </md-tab>
+        <md-tab>
+          <ng-template md-tab-label>
+            Completed(5)
+          </ng-template>
+          <table-comp  [gridData] = taskData></table-comp>
+        </md-tab>
+        -->
+    </md-tab-group>
+    
+    
+    
+  
+</div>
+
+<div class="margin-iss">
+    
+    <table-comp [hidden]=true [gridData] = taskData></table-comp>
+</div>
+
+ <!--<deal-table></deal-table>-->
+ 
+ 
+ <md-card  >
+     Hello USha
+     <div>
+         
+          <div class="advanced-search"> 
+        <div class="advanced-search-header cursor-pointer" (click)="ToggleAdvancedSearch()">
+            <span>
+                Advanced Search
+                <i *ngIf="!toggleSearchOpt" class="material-icons">add</i>
+                <i *ngIf="toggleSearchOpt" class="material-icons">remove</i>
+            </span>
+        </div>
+        <div *ngIf="toggleSearchOpt" class="advanced-search-option">
+            <form id="formId"  #formInfo1="ngForm" action="" class="search-form" >
+                <div >
+                 
+                  
+            <md-input-container class="my-input-container style">
+                    <input id="policyId" name ="policyHolder" [(ngModel)]="policyHolder" mdInput placeholder="Policyholder/Insured"  [mdAutocomplete]="auto1" [formControl]="policyCtrlmob"  >
+                  </md-input-container>
+                  
+             <md-autocomplete #auto1="mdAutocomplete" name ="autoComp1" >
+            <md-option [hidden]="hiddenOption" *ngFor="let policy of filteredPolicys | async" [value]="policy">
+            {{ policy }}
+            </md-option>
+         </md-autocomplete>
+          
+   <md-input-container class="my-input-container">
+   <input mdInput placeholder="ID" name ="id" [(ngModel)]="id" >
+     </md-input-container>
+ 
+                    <md-input-container class="my-input-container">
+                        <input mdInput placeholder="Broker Name" name ="brokerName" [(ngModel)]="brokerName" >
+                    </md-input-container>
+                </div>
+                <div >
+                    <md-input-container class="my-input-container">
+                        <input mdInput placeholder="Inception Date" name ="Inceptiondate" [(ngModel)]="Inceptiondate" >
+                    </md-input-container>
+                </div>
+                 <div class=" col-md-12 button-container ">
+                    <button md-raised-button class="button-one button-color" >Reset</button>
+                    <button md-raised-button class="button-two button-color" (click)="searchBasedFormValue(formInfo.value)">Search</button>
+                </div>
+                
+            </form>
+        </div>
+        
+   
+        
+    </div> 
+         
+         
+     </div>
+    
+</md-card>
+   
+
